@@ -22,8 +22,8 @@ public class UserController {
 
 	@GetMapping(value = "/login")
 	public String getLoginPage() {
-	return "login";
-}
+		return "login";
+	}
 
 	@GetMapping("/admin")
 	public String pageForAdmin(Principal principal){
