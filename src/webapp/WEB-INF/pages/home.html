@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Users</h1>
+<hr/>
+<h2>Add</h2>
+
+<div>
+    <nobr>
+        <a th:href="@{/admin/people/new}">Create new person</a>
+    </nobr>
+</div>
+
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Last_name</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+        <tr th:each ="contact : ${list}">
+            <td><a th:href="@{/admin/people/{id}(id=${contact.id})}" th:utext="${contact.id}">...</a></td>
+            <td><a th:href="@{/admin/people/{id}(id=${contact.id})}" th:utext="${contact.name}">...</a></td>
+            <td><a th:href="@{/admin/people/{id}(id=${contact.id})}" th:utext="${contact.lastName}">...</a></td>
+            <td th:utext="${contact.email}">...</td>
+            <td><a th:href="@{/admin/people/{id}/edit(id=${contact.id})}">Edit</a></td>
+            <td> <form th:method="DELETE" th:action="@{/admin/people/{id}(id=${contact.id})}">
+                <input type="submit" value="Delete"/>
+            </form></td>
+        </tr>
+    </table>
+</div>
+<br/><br/>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout" />
+</form>
+
+
+</body>
+</html>
