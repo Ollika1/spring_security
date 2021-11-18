@@ -36,5 +36,4 @@ public class UserController {
 		model.addAttribute("person",user);
 		return "show"  ;
 	}
-
 }

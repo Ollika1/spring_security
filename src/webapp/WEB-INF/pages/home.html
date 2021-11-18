@@ -25,6 +25,7 @@
             <th>Name</th>
             <th>Last_name</th>
             <th>Email</th>
+            <th>Password</th>
             <th>Edit</th>
             <th>Remove</th>
         </tr>
@@ -33,6 +34,7 @@
             <td><a th:href="@{/admin/people/{id}(id=${contact.id})}" th:utext="${contact.name}">...</a></td>
             <td><a th:href="@{/admin/people/{id}(id=${contact.id})}" th:utext="${contact.lastName}">...</a></td>
             <td th:utext="${contact.email}">...</td>
+            <td th:utext="${contact.password}">...</td>
             <td><a th:href="@{/admin/people/{id}/edit(id=${contact.id})}">Edit</a></td>
             <td> <form th:method="DELETE" th:action="@{/admin/people/{id}(id=${contact.id})}">
                 <input type="submit" value="Delete"/>
